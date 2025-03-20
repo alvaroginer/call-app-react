@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { SubSection } from "./subsectionCallCard/SubSection-CallCard";
 
 export const CallCard = ({ user }) => {
   const [ratingColor, setRatingColor] = useState("");
+  const [callData, setDataCall] = useState(false);
 
   useEffect(() => {
     if (user.overallRating >= 7.5) {
@@ -12,6 +14,10 @@ export const CallCard = ({ user }) => {
       setRatingColor("gradient-red");
     }
   }, [user.overallRating]);
+
+  const handleClick = () => {
+    setDataCall(!callData);
+  };
 
   return (
     <>
@@ -40,7 +46,10 @@ export const CallCard = ({ user }) => {
         </div>
         <hr />
         <div className="event-card--button-container display--flex space--between">
-          <button className="button-container--button calls-button-section">
+          <button
+            className="button-container--button calls-button-section"
+            onClick={handleClick}
+          >
             <img src="./imgs/phone.svg" alt="" />
           </button>
           <button className="button-container--button mails-button-section">
@@ -51,13 +60,17 @@ export const CallCard = ({ user }) => {
           </button>
         </div>
       </div>
-      <div className="event-card--sub-section">
-        <div className="sub-section--header">
-          <p className="sub-section--header__title">Llamadas</p>
-          <button className="sub-section--header__button">+</button>
+      {callData && (
+        <div className="event-card--sub-section">
+          <div className="sub-section--header">
+            <p className="sub-section--header__title">Llamadas</p>
+            <button className="sub-section--header__button">+</button>
+          </div>
+          <div className="call-cards--container scroll-grid">
+            <SubSection call={user.call} />
+          </div>
         </div>
-        <div className="call-cards--container scroll-grid" />
-      </div>
+      )}
     </>
   );
 };
