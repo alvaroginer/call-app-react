@@ -1,6 +1,6 @@
 import { DataBox } from "./DataBox";
 
-export const SubSection = ({ call }) => {
+export const CallCard = ({ call }) => {
   return (
     <div className="call-card">
       <div className="call-card--header">
@@ -18,13 +18,13 @@ export const SubSection = ({ call }) => {
           </div>
           <div className="position-relative">
             <button className="sub-section--header__button">
-              <img src="./imgs/dots-vertical.png" alt="Edit Menu" />
+              <img src="/imgs/dots-vertical.png" alt="Edit Menu" />
             </button>
             <div className="call-card--select">
               <div className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__edit">
                 <img
                   className="call-card--button__img"
-                  src="./imgs/pencil.png"
+                  src="/imgs/pencil.png"
                   alt="Edit button"
                 />
                 <p>Edit Call</p>
@@ -32,7 +32,7 @@ export const SubSection = ({ call }) => {
               <div className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__delete">
                 <img
                   className="call-card--button__img"
-                  src="./imgs/delete.png"
+                  src="/imgs/delete.png"
                   alt="Edit button"
                 />
                 <p>Delete Call</p>

@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { UserCard } from "./components/CallCard/UserCard";
+import { calculateGeneralRating } from "./functions/calculateRating";
+import { updateUser } from "./functions/updateUser";
 import "./App.css";
-import { CallCard } from "./components/CallCard/CallCard";
+import "./index.css";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -8,7 +11,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("./data.json");
+        const response = await fetch("/data.json");
         if (!response.ok) {
           throw new Error("Error al cargar el JSON");
         }
@@ -26,11 +29,11 @@ function App() {
   return (
     <>
       <section className="grid padding--lateral__24 users-grid">
-        <div className="card width__100">
-          {users.map((user) => {
-            return <CallCard key={user.id} user={user} />;
-          })}
-        </div>
+        {users.map((user) => {
+          const newUser = calculateGeneralRating(user);
+          updateUser(user.id, newUser);
+          return <UserCard key={user.id} user={newUser} />;
+        })}
       </section>
     </>
   );
