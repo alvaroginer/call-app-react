@@ -19,6 +19,7 @@
   --space-0: 0;
   --space-1: 1px;
   --space-5: 5px;
+  --space-6: 6px;
   --space-10: 10px;
   --space-12: 12px;
   --space-14: 14px;
@@ -283,19 +284,21 @@ body {
   position: absolute;
   top: var(--space-12);
   right: var(--space-12);
-  color: white;
+  color: var(--color-white);
   font-size: var(--font-30);
   background-color: transparent;
   border: none;
 }
 
 .fav-button:hover {
-  color: grey;
+  color: var(--color-grey);
 }
 
 .button-container--button {
   background-color: transparent;
-  border: 1px solid transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: var(--space-1);
   padding-top: var(--space-5);
 }
 
@@ -309,39 +312,43 @@ body {
 }
 
 .finish-edit--button {
-  background-color: #ff8000;
-  border-radius: 4px;
-  border: 1px solid #ff8000;
+  background-color: var(--color-orange);
+  border-radius: var(--space-5);
+  border-width: var(--space-1);
+  border-style: solid;
+  border-color: var(--color-orange);
   padding: 4px 8px;
-  color: white;
+  color: var(--color-white);
   transition: all ease 0.15s;
 }
 
 .finish-edit--button:hover {
-  background-color: white;
-  color: #ff8000;
+  background-color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .edit--button {
-  background-color: #ff8000;
-  border-radius: 4px;
-  border: 1px solid #ff8000;
+  background-color: var(--color-orange);
+  border-radius: var(--space-5);
+  border-width: var(--space-1);
+  border-style: solid;
+  border-color: var(--color-orange);
   padding: 4px 8px;
-  color: white;
+  color: var(--color-white);
   transition: all ease 0.15s;
 }
 
 .edit--button:hover {
-  background-color: white;
-  color: #ff8000;
+  background-color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .start-call-button {
-  color: #ff8000;
+  color: var(--color-orange);
 }
 
 .start-call-button:hover {
-  text-decoration: underline #ff8000;
+  text-decoration: underline var(--color-orange);
 }
 
 /* Width */
@@ -395,7 +402,7 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-12);
   align-items: flex-start;
 }
 
@@ -405,7 +412,7 @@ body {
 
 .grid-row {
   display: flex;
-  gap: 5px;
+  gap: var(--space-5);
 }
 
 .item__100 {
@@ -433,14 +440,14 @@ body {
 }
 
 .gap--5 {
-  gap: 5px;
+  gap: var(--space-5);
 }
 
 .scroll-grid {
   display: grid;
   grid-auto-columns: 40%;
   grid-auto-flow: column;
-  grid-gap: 24px;
+  grid-gap: var(--space-24);
   overflow-x: auto;
 }
 
@@ -450,25 +457,21 @@ body {
 
 /* Colors */
 .color-orange {
-  color: #ff8000;
-}
-
-.bg-color--blue {
-  background-color: #617383;
+  color: var(--color-orange);
 }
 
 /* Padding */
 .padding__6 {
-  padding: 6px;
+  padding: var(--space-6);
 }
 
 .padding--lateral__24 {
-  padding: 0 24px;
+  padding: 0 var(--space-24);
 }
 
 /* Margin */
 .margin--bt__24 {
-  margin-bottom: 24px;
+  margin-bottom: var(--space-24);
 }
 
 .margin--bt__5 {
@@ -476,40 +479,35 @@ body {
 }
 
 .margin--left__24 {
-  margin-left: 24px;
+  margin-left: var(--space-24);
 }
 
 .margin--left__6 {
-  margin-left: 6px;
+  margin-left: var(--space-6);
 }
 .width__100 {
   width: 100%;
 }
 
 .margin--left__12 {
-  margin-left: 12px;
+  margin-left: var(--space-12);
 }
 
 .margin_6 {
-  margin: 6px;
+  margin: var(--space-6);
 }
 
 .margin_12 {
-  margin: 12px;
+  margin: var(--space-12);
 }
 
 .margin-none {
-  margin: 0;
-}
-
-/* Font-size */
-.font-size__12 {
-  font-size: 12px;
+  margin: var(--space-0);
 }
 
 /* Border-radius */
 .border-radius__12 {
-  border-radius: 12px;
+  border-radius: var(--space-12);
 }
 
 /* Text-align-center */
