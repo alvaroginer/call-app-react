@@ -1,20 +1,44 @@
-import { useEffect } from "react";
-import { paintInputs } from "../../../functions/paintInputs";
+import { useState } from "react";
 
-export const DataBox = ({ className, value, color }) => {
-  useEffect(() => {
-    const checkBoxContainer = document.querySelector(`.${className}`);
-    paintInputs(checkBoxContainer, value, color);
-  });
+export const DataBox = ({ onEdit, value }) => {
+  const [handleValue, setValue] = useState(value);
+  const editContainer = onEdit;
 
   return (
-    <div className={"data-box" + className}>
+    <div className={"data-box"}>
       <p className="data-box--title">Interest</p>
-      <input type="checkbox" className="step-checkbox" />
-      <input type="checkbox" className="step-checkbox" />
-      <input type="checkbox" className="step-checkbox" />
-      <input type="checkbox" className="step-checkbox" />
-      <input type="checkbox" className="step-checkbox" />
+      {editContainer === false
+        ? Array(5).map(_, (index) => {
+            if (index < handleValue) {
+              return (
+                <input
+                  type="checkbox"
+                  class="step-checkbox step-checkbox-default"
+                ></input>
+              );
+            } else {
+              return <input type="checkbox" class="step-checkbox"></input>;
+            }
+          })
+        : Array(5).map(_, (index) => {
+            if (index < handleValue) {
+              return (
+                <input
+                  type="checkbox"
+                  class="step-checkbox step-checkbox-selected"
+                  onClick={setValue}
+                ></input>
+              );
+            } else {
+              return (
+                <input
+                  type="checkbox"
+                  class="step-checkbox"
+                  onClick={setValue}
+                ></input>
+              );
+            }
+          })}
     </div>
   );
 };

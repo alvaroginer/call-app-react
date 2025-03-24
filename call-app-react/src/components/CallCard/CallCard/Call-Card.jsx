@@ -1,12 +1,13 @@
-import { DataBox } from "./DataBox";
+import { useState } from "react";
+import { DataCallCard } from "./Data-Call-Card";
 
 export const CallCard = ({ call }) => {
+  const [containerState, setContainerState] = useState("default");
+
   return (
     <div className="call-card">
       <div className="call-card--header">
-        <p className="call--title">
-          Llamada ${"{"}index + 1{"}"}
-        </p>
+        <p className="call--title">Llamada {call.number}</p>
         <div className="call--header__data-container">
           <div className="title-container">
             <p className="title-container--text__orange">Fecha</p>
@@ -21,7 +22,10 @@ export const CallCard = ({ call }) => {
               <img src="/imgs/dots-vertical.png" alt="Edit Menu" />
             </button>
             <div className="call-card--select">
-              <div className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__edit">
+              <div
+                onClick={() => setContainerState("edit")}
+                className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__edit"
+              >
                 <img
                   className="call-card--button__img"
                   src="/imgs/pencil.png"
@@ -38,23 +42,11 @@ export const CallCard = ({ call }) => {
                 <p>Delete Call</p>
               </div>
             </div>
+            <DataCallCard type={containerState} call={call} />
           </div>
         </div>
       </div>
       <hr />
-      <div className="call-card--main display--flex space--between">
-        <div className="main--data-container">
-          <DataBox />
-          <DataBox />
-          <DataBox />
-        </div>
-        <div className="text-align-center display--flex align-itmes__center">
-          <div className="main--call-rating">
-            <p className="call-rating--title">Call rate</p>
-            <p className="call-rating--number">{call.callRating}</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
