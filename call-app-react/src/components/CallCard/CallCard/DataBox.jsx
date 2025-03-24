@@ -8,7 +8,7 @@ export const DataBox = ({ onEdit, value }) => {
     <div className={"data-box"}>
       <p className="data-box--title">Interest</p>
       {editContainer === false
-        ? Array(5).map(_, (index) => {
+        ? Array(5).map((_, index) => {
             if (index < handleValue) {
               return (
                 <input
@@ -20,7 +20,7 @@ export const DataBox = ({ onEdit, value }) => {
               return <input type="checkbox" class="step-checkbox"></input>;
             }
           })
-        : Array(5).map(_, (index) => {
+        : Array(5).map((_, index) => {
             if (index < handleValue) {
               return (
                 <input
