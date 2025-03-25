@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { DataCallCard } from "../DataCallCard/Data-Call-Card";
+import { CallCardSelect } from "./Call-Card-Select";
 
 export const CallCard = ({ call }) => {
   const [containerState, setContainerState] = useState("default");
+  const [showSelect, setShowSelect] = useState(false);
+
+  const handleClick = () => {
+    setShowSelect(true);
+  };
 
   return (
     <div className="call-card">
@@ -18,30 +24,13 @@ export const CallCard = ({ call }) => {
             <p className="title-container--text__grey">00:12:24</p>
           </div>
           <div className="position-relative">
-            <button className="sub-section--header__button">
+            <button
+              onClick={handleClick}
+              className="sub-section--header__button"
+            >
               <img src="/imgs/dots-vertical.png" alt="Edit Menu" />
             </button>
-            <div className="call-card--select">
-              <div
-                onClick={() => setContainerState("edit")}
-                className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__edit"
-              >
-                <img
-                  className="call-card--button__img"
-                  src="/imgs/pencil.png"
-                  alt="Edit button"
-                />
-                <p>Edit Call</p>
-              </div>
-              <div className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__delete">
-                <img
-                  className="call-card--button__img"
-                  src="/imgs/delete.png"
-                  alt="Edit button"
-                />
-                <p>Delete Call</p>
-              </div>
-            </div>
+            {showSelect && <CallCardSelect />}
           </div>
         </div>
       </div>
