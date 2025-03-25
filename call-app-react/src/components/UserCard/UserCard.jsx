@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CallCard } from "./CallCard/Call-Card";
+import { CallCard } from "../CallCard/Call-Card";
 
 export const UserCard = ({ user }) => {
   const [ratingColor, setRatingColor] = useState("");
@@ -68,8 +68,8 @@ export const UserCard = ({ user }) => {
             <button className="sub-section--header__button">+</button>
           </div>
           <div className="call-cards--container scroll-grid">
-            {user.calls.map((call) => {
-              return <CallCard call={call} />;
+            {user.calls.map((call, index) => {
+              return <CallCard key={user.id - index + 1} call={call} />;
             })}
           </div>
         </div>

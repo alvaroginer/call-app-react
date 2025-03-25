@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { UserCard } from "./components/CallCard/UserCard";
+import { UserCard } from "./components/UserCard/UserCard";
 import { calculateGeneralRating } from "./functions/calculateRating";
 import { updateUser } from "./functions/updateUser";
 import "./App.css";

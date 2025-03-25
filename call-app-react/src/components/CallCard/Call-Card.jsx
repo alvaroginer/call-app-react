@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DataCallCard } from "./Data-Call-Card";
+import { DataCallCard } from "../DataCallCard/Data-Call-Card";
 
 export const CallCard = ({ call }) => {
   const [containerState, setContainerState] = useState("default");
@@ -42,11 +42,11 @@ export const CallCard = ({ call }) => {
                 <p>Delete Call</p>
               </div>
             </div>
-            <DataCallCard type={containerState} call={call} />
           </div>
         </div>
       </div>
       <hr />
+      <DataCallCard type={containerState} call={call} />
     </div>
   );
 };
