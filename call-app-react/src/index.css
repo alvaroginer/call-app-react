@@ -246,7 +246,6 @@ body {
   top: var(--space-0);
   right: var(--space-0);
   min-width: calc(var(--space-100)+ var(--space-10));
-  display: none;
   transition: all ease-in 0.2s;
 }
 

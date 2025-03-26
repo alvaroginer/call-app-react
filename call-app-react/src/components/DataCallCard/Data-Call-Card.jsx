@@ -1,8 +1,6 @@
 import { DataBox } from "./DataBox/DataBox";
 
-export const DataCallCard = ({ type, call }) => {
-  const isDefault = type === "default";
-
+export const DataCallCard = ({ isDefault, call }) => {
   return (
     <div className="call-card--main display--flex space--between">
       <div className="main--data-container">

@@ -1,7 +1,10 @@
-export const CallCardSelect = () => {
+export const CallCardSelect = ({ setEdit }) => {
   return (
     <div className="call-card--select">
-      <div className="display--flex gap--5 align-items__center call-card--select__button call-card--button__edit">
+      <div
+        onClick={() => setEdit(true)}
+        className="display--flex gap--5 align-items__center call-card--select__button call-card--button__edit"
+      >
         <img
           className="call-card--button__img"
           src="/imgs/pencil.png"

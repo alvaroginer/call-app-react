@@ -3,11 +3,11 @@ import { DataCallCard } from "../DataCallCard/Data-Call-Card";
 import { CallCardSelect } from "./Call-Card-Select";
 
 export const CallCard = ({ call }) => {
-  const [containerState, setContainerState] = useState("default");
+  const [isDefault, setIsDefault] = useState(true);
   const [showSelect, setShowSelect] = useState(false);
 
   const handleClick = () => {
-    setShowSelect(true);
+    setShowSelect(!showSelect);
   };
 
   return (
@@ -30,12 +30,12 @@ export const CallCard = ({ call }) => {
             >
               <img src="/imgs/dots-vertical.png" alt="Edit Menu" />
             </button>
-            {showSelect && <CallCardSelect />}
+            {showSelect && <CallCardSelect setEdit={setIsDefault} />}
           </div>
         </div>
       </div>
       <hr />
-      <DataCallCard type={containerState} call={call} />
+      <DataCallCard isDefault={isDefault} call={call} />
     </div>
   );
 };
