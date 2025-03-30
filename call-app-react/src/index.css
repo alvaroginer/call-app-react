@@ -85,6 +85,10 @@ body {
   font-family: var(--font-family);
 }
 
+img {
+  width: 100%;
+}
+
 /* -----> Personalized clases */
 
 /* Header */
@@ -255,6 +259,7 @@ body {
 
 .call-card--select__button:hover {
   cursor: pointer;
+  color: var(--color-orange);
   background-color: var(--color-white);
 }
 

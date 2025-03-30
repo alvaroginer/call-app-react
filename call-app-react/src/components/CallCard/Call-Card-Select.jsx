@@ -1,9 +1,9 @@
-export const CallCardSelect = ({ setEdit }) => {
+export const CallCardSelect = ({ setDefault }) => {
   return (
     <div className="call-card--select">
       <div
-        onClick={() => setEdit(true)}
-        className="display--flex gap--5 align-items__center call-card--select__button call-card--button__edit"
+        onClick={() => setDefault(false)}
+        className="display--flex gap--5 align-itmes__center call-card--select__button call-card--button__edit"
       >
         <img
           className="call-card--button__img"
@@ -12,7 +12,7 @@ export const CallCardSelect = ({ setEdit }) => {
         />
         <p>Edit Call</p>
       </div>
-      <div className="display--flex gap--5 align-items__center call-card--select__button call-card--button__delete">
+      <div className=" display--flex gap--5 align-itmes__center call-card--select__button call-card--button__delete">
         <img
           className="call-card--button__img"
           src="/imgs/delete.png"
